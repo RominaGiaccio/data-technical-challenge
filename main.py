@@ -1,5 +1,7 @@
 def main():
-    print("Hello, World!")
+    with open("input.txt", "r") as file:
+        for index, line in enumerate(file):
+            print(index, line.strip())
 
 
 if __name__ == "__main__":
