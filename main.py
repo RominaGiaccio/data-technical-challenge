@@ -93,6 +93,8 @@ def parse_line(clean_line, format_type):
 
 
 def main():
+    errors = []
+    entries = []
     with open("input.txt", "r", encoding="utf-8") as file:
         for index, line in enumerate(file):
             clean_line = line.strip()
@@ -100,6 +102,7 @@ def main():
 
             if format_type is None:
                 print(f"Line {index}: No format detected")
+                errors.append(index)
                 continue
 
             print(f"Line {index}: Format {format_type}")
@@ -107,11 +110,15 @@ def main():
             parsed_record = parse_line(clean_line, format_type)
             if is_valid_record(parsed_record):
                 print(f"Line {index}: Valid line. Parsed data: {parsed_record}")
+                entries.append(index) #parsed_record
 
             if parsed_record is None or not is_valid_record(parsed_record):
                 print(f"Line {index}: Invalid line.")
+                errors.append(index)
                 continue
 
+    print(f"Errors found in lines: {errors}")
+    print(f"Valid entries: {entries}")
 
 if __name__ == "__main__":
     main()
