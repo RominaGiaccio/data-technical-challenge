@@ -111,27 +111,26 @@ def normalize_record(record):
 def main():
     errors = []
     entries = []
+    
     with open("input.txt", "r", encoding="utf-8") as file:
         for index, line in enumerate(file):
             clean_line = line.strip()
             format_type = detect_format(clean_line)
 
             if format_type is None:
-                #print(f"Line {index}: No format detected")
                 errors.append(index)
                 continue
 
-            #print(f"Line {index}: Format {format_type}")
 
             parsed_record = parse_line(clean_line, format_type)
             if parsed_record is None or not is_valid_record(parsed_record):
-                #print(f"Line {index}: Invalid line.")
                 errors.append(index)
                 continue
 
-            #print(f"Line {index}: Valid line. Parsed data: {parsed_record}")
             normalized_record = normalize_record(parsed_record)
             entries.append(normalized_record)
+
+    entries.sort(key=lambda record: (record["lastname"], record["firstname"]))
 
     result = {
         "entries": entries,
@@ -139,7 +138,6 @@ def main():
     }
     with open("result.json", "w", encoding="utf-8") as file:
         json.dump(result, file, indent=2, sort_keys=True)
-    #print(f"Output: {result}")
 
 if __name__ == "__main__":
     main()

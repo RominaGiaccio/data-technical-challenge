@@ -1,10 +1,10 @@
 {
   "entries": [
     {
-      "color": "Green",
-      "firstname": "Kerri",
-      "lastname": "Chandler",
-      "phonenumber": "646-111-0101",
+      "color": "Blue",
+      "firstname": "Booker T.",
+      "lastname": "Washington",
+      "phonenumber": "703-742-0996",
       "zipcode": "10013"
     },
     {
@@ -15,17 +15,10 @@
       "zipcode": "11237"
     },
     {
-      "color": "yellow",
-      "firstname": "James",
-      "lastname": "Murphy",
-      "phonenumber": "018-154-6474",
-      "zipcode": "83880"
-    },
-    {
-      "color": "Blue",
-      "firstname": "Booker T.",
-      "lastname": "Washington",
-      "phonenumber": "703-742-0996",
+      "color": "Green",
+      "firstname": "Kerri",
+      "lastname": "Chandler",
+      "phonenumber": "646-111-0101",
       "zipcode": "10013"
     },
     {
@@ -34,6 +27,13 @@
       "lastname": "Washington",
       "phonenumber": "373-781-7380",
       "zipcode": "87360"
+    },
+    {
+      "color": "yellow",
+      "firstname": "James",
+      "lastname": "Murphy",
+      "phonenumber": "018-154-6474",
+      "zipcode": "83880"
     }
   ],
   "errors": [
