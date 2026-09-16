@@ -91,6 +91,21 @@ def parse_line(clean_line, format_type):
 
     return None
 
+def normalize_phone(phone):
+    digits = get_digits(phone)
+    return f"{digits[:3]}-{digits[3:6]}-{digits[6:]}"
+
+def normalize_zip(zipcode):
+    return str(zipcode).strip()
+
+def normalize_record(record):
+    return {
+        "firstname": record["firstname"],
+        "lastname": record["lastname"],
+        "phonenumber": normalize_phone(record["phonenumber"]),
+        "color": record["color"],
+        "zipcode": normalize_zip(record["zipcode"]),
+    }
 
 def main():
     errors = []
@@ -101,24 +116,27 @@ def main():
             format_type = detect_format(clean_line)
 
             if format_type is None:
-                print(f"Line {index}: No format detected")
+                #print(f"Line {index}: No format detected")
                 errors.append(index)
                 continue
 
-            print(f"Line {index}: Format {format_type}")
+            #print(f"Line {index}: Format {format_type}")
 
             parsed_record = parse_line(clean_line, format_type)
-            if is_valid_record(parsed_record):
-                print(f"Line {index}: Valid line. Parsed data: {parsed_record}")
-                entries.append(index) #parsed_record
-
             if parsed_record is None or not is_valid_record(parsed_record):
-                print(f"Line {index}: Invalid line.")
+                #print(f"Line {index}: Invalid line.")
                 errors.append(index)
                 continue
 
-    print(f"Errors found in lines: {errors}")
-    print(f"Valid entries: {entries}")
+            #print(f"Line {index}: Valid line. Parsed data: {parsed_record}")
+            normalized_record = normalize_record(parsed_record)
+            entries.append(normalized_record)
+
+    output = {
+        "entries": entries,
+        "errors": errors,
+    }
+    print(f"Output: {output}")
 
 if __name__ == "__main__":
     main()
