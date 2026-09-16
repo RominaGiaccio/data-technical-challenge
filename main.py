@@ -1,10 +1,36 @@
 import re
 
-FORMAT_A = r"[^,]+,\s*[^,]+,\s*\(\d{3}\)-\d{3}-\d{4},\s*[^,]+,\s*\d{5}"
+FORMAT_A = r"[^,]+,\s*[^,]+,\s*\([^)]+\)-[^,\s]+-[^,\s]+,\s*[^,]+,\s*[^,]+"
 
-FORMAT_B = r"[^,]+\s+[^,]+,\s*[^,]+,\s*\d{5},\s*\d{3}\s+\d{3}\s+\d{4}"
+FORMAT_B = r"[^,]+\s+[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,\s]+\s+[^,\s]+\s+[^,\s]+"
 
-FORMAT_C = r"[^,]+,\s*[^,]+,\s*\d{5},\s*\d{3}\s+\d{3}\s+\d{4},\s*[^,]+"
+FORMAT_C = r"[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,\s]+\s+[^,\s]+\s+[^,\s]+,\s*[^,]+"
+
+def get_digits(value):
+    return "".join(char for char in value if char.isdigit())
+
+def is_valid_zip(value):
+    return len(value) == 5 and value.isdigit()
+
+def is_valid_phone(value):
+    return len(get_digits(value)) == 10
+
+def is_valid_record(record):
+    return (
+        is_valid_zip(record["zipcode"])
+        and is_valid_phone(record["phonenumber"])
+    )
+
+def split_name(full_name):
+    name_parts = full_name.strip().split()
+
+    if len(name_parts) < 2:
+        return None
+
+    firstname = " ".join(name_parts[:-1])
+    lastname = name_parts[-1]
+
+    return firstname, lastname
 
 def detect_format(line):
     if re.fullmatch(FORMAT_A, line):
@@ -17,17 +43,6 @@ def detect_format(line):
         return "C"
 
     return None
-
-def split_name(full_name):
-    name_parts = full_name.strip().split()
-
-    if len(name_parts) < 2:
-        return None
-
-    firstname = " ".join(name_parts[:-1])
-    lastname = name_parts[-1]
-
-    return firstname, lastname
 
 def parse_format_a(parts):
     return {
@@ -89,9 +104,13 @@ def main():
 
             print(f"Line {index}: Format {format_type}")
 
-            result = parse_line(clean_line, format_type)
-            if result:
-                print(f"Line {index}: Parsed data - {result}")
+            parsed_record = parse_line(clean_line, format_type)
+            if is_valid_record(parsed_record):
+                print(f"Line {index}: Valid line. Parsed data: {parsed_record}")
+
+            if parsed_record is None or not is_valid_record(parsed_record):
+                print(f"Line {index}: Invalid line.")
+                continue
 
 
 if __name__ == "__main__":
