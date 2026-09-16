@@ -1,4 +1,5 @@
 import re
+import json
 
 FORMAT_A = r"[^,]+,\s*[^,]+,\s*\([^)]+\)-[^,\s]+-[^,\s]+,\s*[^,]+,\s*[^,]+"
 
@@ -132,11 +133,13 @@ def main():
             normalized_record = normalize_record(parsed_record)
             entries.append(normalized_record)
 
-    output = {
+    result = {
         "entries": entries,
         "errors": errors,
     }
-    print(f"Output: {output}")
+    with open("result.json", "w", encoding="utf-8") as file:
+        json.dump(result, file, indent=2, sort_keys=True)
+    #print(f"Output: {result}")
 
 if __name__ == "__main__":
     main()
