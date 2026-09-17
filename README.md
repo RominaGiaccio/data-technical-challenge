@@ -46,16 +46,43 @@ Firstname, Lastname, XXXXX, XXX XXX XXXX, Color
   - 2-space indentation
   - alphabetically sorted keys (at every object level)
 
-# Execution
+# Setup
 
-install pytest
+Requires Python 3.
 
-venv
+Create a virtual environment:
 
-# How to run it
+```powershell
+python -m venv .venv
+```
+Activate it:
 
-python main.py  
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
-# How to run tests
+Install test dependencies:
 
+```powershell
+pip install pytest
+```
+
+# Run
+
+Pass the input file path as an argument:
+
+```powershell
+python main.py <input_file_path>
+```
+
+Example:
+
+```powershell
+python main.py input.txt
+```
+
+# Run tests
+
+```powershell
 pytest
+```

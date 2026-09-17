@@ -1,5 +1,6 @@
 import re
 import json
+import sys
 
 FORMAT_A = r"[^,]+,\s*[^,]+,\s*\([^)]+\)-[^,\s]+-[^,\s]+,\s*[^,]+,\s*[^,]+"
 
@@ -107,11 +108,11 @@ def normalize_record(record):
         "zipcode": normalize_zip(record["zipcode"]),
     }
 
-def main():
+def main(input_path):
     errors = []
     entries = []
 
-    with open("input.txt", "r", encoding="utf-8") as file:
+    with open(input_path, "r", encoding="utf-8") as file:
         for index, line in enumerate(file):
             clean_line = line.strip()
             format_type = detect_format(clean_line)
@@ -139,4 +140,8 @@ def main():
         json.dump(result, file, indent=2, sort_keys=True)
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 2:
+        print("Usage: python main.py <input_file>")
+        sys.exit(1)
+
+    main(sys.argv[1])
