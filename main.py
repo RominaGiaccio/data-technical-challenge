@@ -1,21 +1,23 @@
-import re
 import json
+import re
 import sys
 
 FORMAT_A = r"[^,]+,\s*[^,]+,\s*\([^)]+\)-[^,\s]+-[^,\s]+,\s*[^,]+,\s*[^,]+"
-
 FORMAT_B = r"[^,]+\s+[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,\s]+\s+[^,\s]+\s+[^,\s]+"
-
 FORMAT_C = r"[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,\s]+\s+[^,\s]+\s+[^,\s]+,\s*[^,]+"
+
 
 def get_digits(value):
     return "".join(char for char in value if char.isdigit())
 
+
 def is_valid_zip(value):
     return len(value) == 5 and value.isdigit()
 
+
 def is_valid_phone(value):
     return len(get_digits(value)) == 10
+
 
 def is_valid_record(record):
     return (
@@ -26,6 +28,7 @@ def is_valid_record(record):
         and is_valid_phone(record["phonenumber"])
     )
 
+
 def split_full_name(full_name):
     name_parts = full_name.strip().rsplit(maxsplit=1)
 
@@ -35,6 +38,7 @@ def split_full_name(full_name):
     firstname, lastname = name_parts
 
     return firstname, lastname
+
 
 def detect_format(line):
     if re.fullmatch(FORMAT_A, line):
@@ -48,6 +52,7 @@ def detect_format(line):
 
     return None
 
+
 def parse_format_a(parts):
     return {
         "firstname": parts[1],
@@ -56,6 +61,7 @@ def parse_format_a(parts):
         "color": parts[3],
         "zipcode": parts[4],
     }
+
 
 def parse_format_b(parts):
     name = split_full_name(parts[0])
@@ -72,6 +78,7 @@ def parse_format_b(parts):
         "zipcode": parts[2],
     }
 
+
 def parse_format_c(parts):
     return {
         "firstname": parts[0],
@@ -80,6 +87,7 @@ def parse_format_c(parts):
         "color": parts[4],
         "zipcode": parts[2],
     }
+
 
 def parse_line(clean_line, format_type):
     parts = [part.strip() for part in clean_line.split(",")]
@@ -95,12 +103,15 @@ def parse_line(clean_line, format_type):
 
     return None
 
+
 def normalize_phone(phone):
     digits = get_digits(phone)
     return f"{digits[:3]}-{digits[3:6]}-{digits[6:]}"
 
+
 def normalize_zip(zipcode):
     return str(zipcode).strip()
+
 
 def normalize_record(record):
     return {
@@ -110,6 +121,7 @@ def normalize_record(record):
         "color": record["color"],
         "zipcode": normalize_zip(record["zipcode"]),
     }
+
 
 def main(input_path):
     errors = []
@@ -123,7 +135,6 @@ def main(input_path):
             if format_type is None:
                 errors.append(index)
                 continue
-
 
             parsed_record = parse_line(clean_line, format_type)
             if parsed_record is None or not is_valid_record(parsed_record):
@@ -141,6 +152,7 @@ def main(input_path):
     }
     with open("result.json", "w", encoding="utf-8") as file:
         json.dump(result, file, indent=2, sort_keys=True)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
