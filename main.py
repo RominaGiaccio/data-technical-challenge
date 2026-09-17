@@ -22,14 +22,13 @@ def is_valid_record(record):
         and is_valid_phone(record["phonenumber"])
     )
 
-def split_name(full_name):
-    name_parts = full_name.strip().split()
+def split_full_name(full_name):
+    name_parts = full_name.strip().rsplit(maxsplit=1)
 
     if len(name_parts) < 2:
         return None
 
-    firstname = " ".join(name_parts[:-1])
-    lastname = name_parts[-1]
+    firstname, lastname = name_parts
 
     return firstname, lastname
 
@@ -55,7 +54,7 @@ def parse_format_a(parts):
     }
 
 def parse_format_b(parts):
-    name = split_name(parts[0])
+    name = split_full_name(parts[0])
 
     if name is None:
         return None
@@ -111,7 +110,7 @@ def normalize_record(record):
 def main():
     errors = []
     entries = []
-    
+
     with open("input.txt", "r", encoding="utf-8") as file:
         for index, line in enumerate(file):
             clean_line = line.strip()

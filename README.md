@@ -45,3 +45,17 @@ Firstname, Lastname, XXXXX, XXX XXX XXXX, Color
 - Format the JSON with:
   - 2-space indentation
   - alphabetically sorted keys (at every object level)
+
+# Execution
+
+install pytest
+
+venv
+
+# How to run it
+
+python main.py  
+
+# How to run tests
+
+pytest
