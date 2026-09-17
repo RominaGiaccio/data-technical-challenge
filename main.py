@@ -19,7 +19,10 @@ def is_valid_phone(value):
 
 def is_valid_record(record):
     return (
-        is_valid_zip(record["zipcode"])
+        bool(record["firstname"].strip())
+        and bool(record["lastname"].strip())
+        and bool(record["color"].strip())
+        and is_valid_zip(record["zipcode"])
         and is_valid_phone(record["phonenumber"])
     )
 

@@ -46,7 +46,19 @@ Firstname, Lastname, XXXXX, XXX XXX XXXX, Color
   - 2-space indentation
   - alphabetically sorted keys (at every object level)
 
-# Setup
+## Assumptions
+
+See `assumptions.md` for parsing assumptions and decisions.
+
+## Project files
+
+- `main.py`: main program
+- `test_main.py`: automated tests
+- `input.txt`: sample input
+- `result.json`: generated output
+- `assumptions.md`: parsing assumptions
+
+## Setup
 
 Requires Python 3.
 
@@ -67,7 +79,7 @@ Install test dependencies:
 pip install pytest
 ```
 
-# Run
+## Run
 
 Pass the input file path as an argument:
 
@@ -80,9 +92,17 @@ Example:
 ```powershell
 python main.py input.txt
 ```
+The program generates `result.json` in the current working directory.
 
-# Run tests
+## Run tests
 
 ```powershell
 pytest
 ```
+## Author
+
+Romina Giaccio
+
+## Acknowledgments
+
+Thanks for the opportunity to complete this technical challenge!

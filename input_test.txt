@@ -1,0 +1,38 @@
+Washington, Booker T., (703)-742-0996, Blue, 10013
+James Murphy, Red, 11237, 703 955 0373
+Kerri, Chandler, 10013, 646 111 0101, Green
+Ana Maria Paula Holmes, yellow, 83880, 018 154 6474
+Smith, John, (212)-555-0198, Black, 02108
+Ana-Maria, O'Neil, 02139, 617 555 0102, Dark Blue
+Chandler, Kerri, (623)-668-9293, pink, 123123121
+Brown, Alex, (415)-555-019, Orange, 94105
+Maria Lopez, White, 12A45, 305 555 0142
+Robert King, Gray, 10001, 212 555 012
+error500
+SingleName, Blue, 10013, 703 955 0373
+Doe, Jane, (202)-555-0123, Red, 20001
+Jane, Doe, 20001, 202 555 0123, Red
+Booker T. Washington, yellow, 87360, 373 781 7380
+Liam, Carter, 30301, 404 555 01010, Green
+Mia, Turner, 9021, 310 555 0182, Purple
+Van Buren, Martin, (917)-555-0144, Light Blue, 10011
+Maria del Carmen Rodriguez, Teal, 33101, 786 555 0104
+Brown, Alex, 415-555-0198, Orange, 94105
+Taylor, Sam, (312)-555-0177, Blue, 60601, EXTRA
+Emily Stone, Silver, 02134, 617 555 0199
+Alice, Murphy, 10002, 212 555 0101, Green
+Bob, Murphy, 10003, 212 555 0102, Green
+Murphy, Aaron, (212)-555-0103, Green, 10004
+Garcia, Lucia, (305)-555-0111, Pink, 12A45
+García, José, (598)-123-4567, Azul, 11000
+Sofía, Núñez, 11800, 598 234 5678, Verde
+  Miller,   Sarah,   (303)-555-0123,   Navy,   80202
+Chris Evans, Black, 123456, 404 555 0198
+Davis, Emma, (404)-555-01988, White, 30303
+Doe, Jane, (202)-555-0123, , 20001
+Noah, Bennett, 73301, 512 555 0188, Dark Green
+Mary Jane Watson Parker, Gold, 85001, 602 555 0177
+Lee, Chris, ABCDE, 212 555 0100, Blue
+James Murphy, Red, 11237, 703-955-0373
+Washington, Booker T., 10013, 703-742-0996, Blue
+James Murphy, 11237, 703 955 0373

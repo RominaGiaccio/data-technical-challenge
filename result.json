@@ -1,11 +1,137 @@
 {
   "entries": [
     {
+      "color": "Dark Green",
+      "firstname": "Noah",
+      "lastname": "Bennett",
+      "phonenumber": "512-555-0188",
+      "zipcode": "73301"
+    },
+    {
+      "color": "Green",
+      "firstname": "Kerri",
+      "lastname": "Chandler",
+      "phonenumber": "646-111-0101",
+      "zipcode": "10013"
+    },
+    {
+      "color": "Red",
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "phonenumber": "202-555-0123",
+      "zipcode": "20001"
+    },
+    {
+      "color": "Red",
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "phonenumber": "202-555-0123",
+      "zipcode": "20001"
+    },
+    {
+      "color": "Azul",
+      "firstname": "Jos\u00e9",
+      "lastname": "Garc\u00eda",
+      "phonenumber": "598-123-4567",
+      "zipcode": "11000"
+    },
+    {
       "color": "yellow",
-      "firstname": "James",
-      "lastname": "Murphy",
+      "firstname": "Ana Maria Paula",
+      "lastname": "Holmes",
       "phonenumber": "018-154-6474",
       "zipcode": "83880"
+    },
+    {
+      "color": "Navy",
+      "firstname": "Sarah",
+      "lastname": "Miller",
+      "phonenumber": "303-555-0123",
+      "zipcode": "80202"
+    },
+    {
+      "color": "Green",
+      "firstname": "Aaron",
+      "lastname": "Murphy",
+      "phonenumber": "212-555-0103",
+      "zipcode": "10004"
+    },
+    {
+      "color": "Green",
+      "firstname": "Alice",
+      "lastname": "Murphy",
+      "phonenumber": "212-555-0101",
+      "zipcode": "10002"
+    },
+    {
+      "color": "Green",
+      "firstname": "Bob",
+      "lastname": "Murphy",
+      "phonenumber": "212-555-0102",
+      "zipcode": "10003"
+    },
+    {
+      "color": "Red",
+      "firstname": "James",
+      "lastname": "Murphy",
+      "phonenumber": "703-955-0373",
+      "zipcode": "11237"
+    },
+    {
+      "color": "Verde",
+      "firstname": "Sof\u00eda",
+      "lastname": "N\u00fa\u00f1ez",
+      "phonenumber": "598-234-5678",
+      "zipcode": "11800"
+    },
+    {
+      "color": "Dark Blue",
+      "firstname": "Ana-Maria",
+      "lastname": "O'Neil",
+      "phonenumber": "617-555-0102",
+      "zipcode": "02139"
+    },
+    {
+      "color": "Gold",
+      "firstname": "Mary Jane Watson",
+      "lastname": "Parker",
+      "phonenumber": "602-555-0177",
+      "zipcode": "85001"
+    },
+    {
+      "color": "Teal",
+      "firstname": "Maria del Carmen",
+      "lastname": "Rodriguez",
+      "phonenumber": "786-555-0104",
+      "zipcode": "33101"
+    },
+    {
+      "color": "Black",
+      "firstname": "John",
+      "lastname": "Smith",
+      "phonenumber": "212-555-0198",
+      "zipcode": "02108"
+    },
+    {
+      "color": "Silver",
+      "firstname": "Emily",
+      "lastname": "Stone",
+      "phonenumber": "617-555-0199",
+      "zipcode": "02134"
+    },
+    {
+      "color": "Light Blue",
+      "firstname": "Martin",
+      "lastname": "Van Buren",
+      "phonenumber": "917-555-0144",
+      "zipcode": "10011"
+    },
+    {
+      "color": "Blue",
+      "firstname": "Booker T.",
+      "lastname": "Washington",
+      "phonenumber": "703-742-0996",
+      "zipcode": "10013"
     },
     {
       "color": "yellow",
@@ -16,7 +142,23 @@
     }
   ],
   "errors": [
-    1,
-    3
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    15,
+    16,
+    19,
+    20,
+    25,
+    29,
+    30,
+    31,
+    34,
+    35,
+    36,
+    37
   ]
 }
