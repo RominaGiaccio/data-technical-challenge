@@ -14,23 +14,26 @@ def test_detect_format_a():
     line = "Washington, Booker T., (703)-742-0996, Blue, 10013"
     assert detect_format(line) == "A"
 
+
 def test_detect_format_b():
     line = "James Murphy, Red, 11237, 703 955 0373"
     assert detect_format(line) == "B"
+
 
 def test_detect_format_c():
     line = "Kerri, Chandler, 10013, 646 111 0101, Green"
     assert detect_format(line) == "C"
 
+
 def test_invalid_format():
     line = "error500"
-
     assert detect_format(line) is None
 
 # Validation
 
 def test_invalid_zip():
     assert is_valid_zip("123123121") is False
+
 
 def test_invalid_phone():
     assert is_valid_phone("703 955 037") is False
@@ -61,6 +64,7 @@ def test_process_valid_format_a():
         "zipcode": "10013",
     }
 
+
 def test_process_valid_format_b():
     line = "Booker T. Washington, yellow, 83880, 018 154 6474"
 
@@ -79,6 +83,7 @@ def test_process_valid_format_b():
         "color": "yellow",
         "zipcode": "83880",
     }
+
 
 def test_process_valid_format_c():
     line = "Kerri, Chandler, 10013, 646 111 0101, Green"
@@ -99,6 +104,7 @@ def test_process_valid_format_c():
         "zipcode": "10013",
     }
 
+
 def test_valid_format_with_invalid_zip():
     line = "Chandler, Kerri, (623)-668-9293, pink, 123123121"
 
@@ -108,6 +114,7 @@ def test_valid_format_with_invalid_zip():
     assert format_type == "A"
     assert is_valid_record(record) is False
 
+
 def test_valid_format_with_invalid_phone():
     line = "Chandler, Kerri, (623)-668-929, pink, 12312"
 
@@ -116,6 +123,7 @@ def test_valid_format_with_invalid_phone():
 
     assert format_type == "A"
     assert is_valid_record(record) is False
+
 
 def test_process_valid_format_with_large_name():
     line = "Ana Maria Paula Holmes, yellow, 83880, 018 154 6474"
